@@ -1,5 +1,7 @@
 package com.devlomi.record_view;
 
+import static androidx.appcompat.widget.ViewUtils.isLayoutRtl;
+
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.TypedArray;
@@ -19,6 +21,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.view.ViewCompat;
 
 import java.io.IOException;
 
@@ -350,7 +353,7 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
         if (!isSwiped) {
 
             //Swipe To Cancel
-            if (slideToCancelLayout.getX() != 0 && slideToCancelLayout.getX() <= counterTime.getRight() + cancelBounds) {
+            if (slideToCancelLayout.getX() != 0 && slideToCancelLayout.getX() <= getViewEnd() + cancelBounds) {
 
                 //if the time was less than one second then do not start basket animation
                 if (isLessThanOneSecond(time)) {
@@ -444,6 +447,9 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
         }
     }
 
+    private int getViewEnd() {
+        return ViewCompat.getLayoutDirection(counterTime) == ViewCompat.LAYOUT_DIRECTION_RTL ? counterTime.getLeft() : counterTime.getRight();
+    }
 
     private boolean canMoveX(MotionEvent motionEvent) {
         //Prevent Swiping out of bounds
