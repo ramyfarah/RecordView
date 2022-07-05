@@ -174,13 +174,13 @@ public class RecordButton extends AppCompatImageView implements View.OnTouchList
         }
     }
 
-    protected void changeIconToSend() {
+    public void changeIconToSend() {
         if (sendIcon != null) {
             setImageDrawable(sendIcon);
         }
     }
 
-    protected void changeIconToRecord() {
+    public void changeIconToRecord() {
         if (micIcon != null) {
             setImageDrawable(micIcon);
         }
