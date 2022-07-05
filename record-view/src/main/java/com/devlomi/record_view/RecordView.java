@@ -62,7 +62,7 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
     private boolean isLockEnabled = false;
     float recordLockYInWindow = 0f;
     float recordLockXInWindow = 0f;
-    private boolean fractionReached = false;
+    boolean fractionReached = false;
     private float currentYFraction = 0f;
     private boolean isLockInSameParent = false;
 

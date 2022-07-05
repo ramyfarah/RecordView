@@ -25,11 +25,11 @@ public class RecordLockView extends View {
     private Context context;
     private RecordLockViewListener recordLockViewListener;
 
-    private int defaultCircleColor = Color.parseColor("#0A81AB");
-    private int circleLockedColor = Color.parseColor("#314E52");
+    private int defaultCircleColor = Color.WHITE;
+    private int circleLockedColor = Color.WHITE;
     private int circleColor = defaultCircleColor;
     private int recordLockAlpha = 255;
-    private int lockColor = Color.WHITE;
+    private int lockColor = Color.parseColor("#476ef7");
 
     private float topLockTop, topLockBottom, initialTopLockTop, initialTopLockBottom = 0f;
 
