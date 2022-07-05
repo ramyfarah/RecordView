@@ -98,7 +98,7 @@ public class RecordButton extends AppCompatImageView implements View.OnTouchList
     }
 
 
-    private void setTheImageResource(int imageResource) {
+    public void setTheImageResource(int imageResource) {
         Drawable image = AppCompatResources.getDrawable(getContext(), imageResource);
         setImageDrawable(image);
         micIcon = image;
