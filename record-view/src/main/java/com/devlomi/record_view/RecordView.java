@@ -393,7 +393,7 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
 
             } else {
                 float newY = isLockInSameParent ? motionEvent.getRawY() : motionEvent.getRawY() - recordButtonYInWindow;
-                if (canMoveX(motionEvent) && !canMoveY(motionEvent, newY)) {
+                if (canMoveX(motionEvent)) {
                     recordBtn.animate()
                             .x(motionEvent.getRawX())
                             .setDuration(0)
