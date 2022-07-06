@@ -392,8 +392,8 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
 
 
             } else {
-
-                if (canMoveX(motionEvent)) {
+                float newY = isLockInSameParent ? motionEvent.getRawY() : motionEvent.getRawY() - recordButtonYInWindow;
+                if (canMoveX(motionEvent) && !canMoveY(motionEvent, newY)) {
                     recordBtn.animate()
                             .x(motionEvent.getRawX())
                             .setDuration(0)
@@ -419,7 +419,6 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
                    since motionEvent.getRawY() returns Y's location onScreen
                    we had to get screen height and get the difference between motionEvent and screen height
                  */
-                float newY = isLockInSameParent ? motionEvent.getRawY() : motionEvent.getRawY() - recordButtonYInWindow;
                 if (canMoveY(motionEvent, newY)) {
 
                     recordBtn.animate()
