@@ -354,10 +354,10 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
 
             //Swipe To Cancel
             if ((ViewCompat.getLayoutDirection(counterTime) == ViewCompat.LAYOUT_DIRECTION_LTR &&
-                slideToCancelLayout.getX() != 0 && slideToCancelLayout.getX() <= getViewEnd() + cancelBounds) || (
+                    slideToCancelLayout.getX() != 0 && slideToCancelLayout.getX() <= getViewEnd() + cancelBounds) || (
                     ViewCompat.getLayoutDirection(counterTime) == ViewCompat.LAYOUT_DIRECTION_RTL &&
                             slideToCancelLayout.getX() != 0 && slideToCancelLayout.getX() >= getViewEnd() + cancelBounds
-                    )) {
+            )) {
                 //if the time was less than one second then do not start basket animation
                 if (isLessThanOneSecond(time)) {
                     hideViews(true);
@@ -482,9 +482,9 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
              1. prevent swiping below record button
              2. prevent swiping up if record button is NOT near record Lock's X
              */
-            if(isLockInSameParent){
+            if (isLockInSameParent) {
                 return motionEvent.getRawY() < initialRecordButtonY && motionEvent.getRawX() >= recordLockXInWindow;
-            }else {
+            } else {
                 return dif <= initialRecordButtonY && motionEvent.getRawX() >= recordLockXInWindow;
             }
         }
@@ -554,7 +554,7 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
     }
 
     private boolean isLockAndRecordButtonHaveSameParent() {
-        if (recordLockView == null){
+        if (recordLockView == null) {
             return false;
         }
 
