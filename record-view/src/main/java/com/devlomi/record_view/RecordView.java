@@ -611,9 +611,9 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
     private void setMarginRight(int marginRight, boolean convertToDp) {
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) slideToCancelLayout.getLayoutParams();
         if (convertToDp) {
-            layoutParams.rightMargin = (int) DpUtil.toPixel(marginRight, context);
+            layoutParams.setMarginEnd((int) DpUtil.toPixel(marginRight, context));
         } else
-            layoutParams.rightMargin = marginRight;
+            layoutParams.setMarginEnd(marginRight);
 
         slideToCancelLayout.setLayoutParams(layoutParams);
     }
