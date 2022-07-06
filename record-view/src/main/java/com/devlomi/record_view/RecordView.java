@@ -484,7 +484,8 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
             if (isLockInSameParent) {
                 return motionEvent.getRawY() < initialRecordButtonY && motionEvent.getRawX() >= recordLockXInWindow;
             } else {
-                return dif <= initialRecordButtonY && motionEvent.getRawX() >= recordLockXInWindow;
+                return ((ViewCompat.getLayoutDirection(counterTime) == ViewCompat.LAYOUT_DIRECTION_LTR) && dif <= initialRecordButtonY && motionEvent.getRawX() >= recordLockXInWindow ||
+                        ((ViewCompat.getLayoutDirection(counterTime) == ViewCompat.LAYOUT_DIRECTION_RTL) && dif <= initialRecordButtonY && motionEvent.getRawX() < recordLockXInWindow));
             }
         }
 
