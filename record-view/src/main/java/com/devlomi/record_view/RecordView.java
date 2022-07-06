@@ -353,8 +353,11 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
         if (!isSwiped) {
 
             //Swipe To Cancel
-            if (slideToCancelLayout.getX() != 0 && slideToCancelLayout.getX() <= getViewEnd() + cancelBounds) {
-
+            if ((ViewCompat.getLayoutDirection(counterTime) == ViewCompat.LAYOUT_DIRECTION_LTR &&
+                slideToCancelLayout.getX() != 0 && slideToCancelLayout.getX() <= getViewEnd() + cancelBounds) || (
+                    ViewCompat.getLayoutDirection(counterTime) == ViewCompat.LAYOUT_DIRECTION_RTL &&
+                            slideToCancelLayout.getX() != 0 && slideToCancelLayout.getX() >= getViewEnd() + cancelBounds
+                    )) {
                 //if the time was less than one second then do not start basket animation
                 if (isLessThanOneSecond(time)) {
                     hideViews(true);
@@ -389,7 +392,6 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
 
 
             } else {
-
 
                 if (canMoveX(motionEvent)) {
                     recordBtn.animate()
