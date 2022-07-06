@@ -453,14 +453,23 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
 
     private boolean canMoveX(MotionEvent motionEvent) {
         //Prevent Swiping out of bounds
-        if (motionEvent.getRawX() < initialRecordButtonX) {
-            if (isLockEnabled) {
-                //prevent swiping X if record button goes up
-                return currentYFraction <= 0.3;
+        if (ViewCompat.getLayoutDirection(counterTime) == ViewCompat.LAYOUT_DIRECTION_LTR) {
+            if (motionEvent.getRawX() < initialRecordButtonX) {
+                if (isLockEnabled) {
+                    //prevent swiping X if record button goes up
+                    return currentYFraction <= 0.3;
+                }
+                return true;
             }
-            return true;
+        } else {
+            if (motionEvent.getRawX() > initialRecordButtonX) {
+                if (isLockEnabled) {
+                    //prevent swiping X if record button goes up
+                    return currentYFraction <= 0.3;
+                }
+                return true;
+            }
         }
-
         return false;
     }
 
