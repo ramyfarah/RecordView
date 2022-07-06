@@ -482,10 +482,14 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
              2. prevent swiping up if record button is NOT near record Lock's X
              */
             if (isLockInSameParent) {
-                return motionEvent.getRawY() < initialRecordButtonY && motionEvent.getRawX() >= recordLockXInWindow;
+                return
+                        (ViewCompat.getLayoutDirection(counterTime) == ViewCompat.LAYOUT_DIRECTION_LTR &&
+                                motionEvent.getRawY() < initialRecordButtonY && motionEvent.getRawX() >= recordLockXInWindow) ||
+                                (ViewCompat.getLayoutDirection(counterTime) == ViewCompat.LAYOUT_DIRECTION_RTL &&
+                                        motionEvent.getRawY() < initialRecordButtonY && motionEvent.getRawX() <= recordLockXInWindow);
             } else {
-                return ((ViewCompat.getLayoutDirection(counterTime) == ViewCompat.LAYOUT_DIRECTION_LTR) && dif <= initialRecordButtonY && motionEvent.getRawX() >= recordLockXInWindow ||
-                        ((ViewCompat.getLayoutDirection(counterTime) == ViewCompat.LAYOUT_DIRECTION_RTL) && dif <= initialRecordButtonY && motionEvent.getRawX() < recordLockXInWindow));
+                return (ViewCompat.getLayoutDirection(counterTime) == ViewCompat.LAYOUT_DIRECTION_LTR && dif <= initialRecordButtonY && motionEvent.getRawX() >= recordLockXInWindow) ||
+                        (ViewCompat.getLayoutDirection(counterTime) == ViewCompat.LAYOUT_DIRECTION_RTL && dif <= initialRecordButtonY && motionEvent.getRawX() <= recordLockXInWindow);
             }
         }
 
