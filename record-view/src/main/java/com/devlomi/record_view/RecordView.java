@@ -38,7 +38,7 @@ public class RecordView extends RelativeLayout implements RecordLockViewListener
     public Chronometer counterTime;
     public TextView slideToCancel, cancelTextView;
     private ShimmerLayout slideToCancelLayout;
-    private ImageView arrow;
+    public ImageView arrow;
     private float initialRecordButtonX, initialRecordButtonY, recordButtonYInWindow, basketInitialY, difX = 0;
     private float cancelBounds = DEFAULT_CANCEL_BOUNDS;
     private long startTime, elapsedTime = 0;
